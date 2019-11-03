@@ -17,7 +17,7 @@
                 <span class='glyphicon glyphicon-home'></span> Home
               </a>
             </li>
-           
+
             <!--<!--test-->
             <li [routerLinkActive]='["link-active"]'>
               <a [routerLink]='["/book-list"]' (click)='collapse()'>
@@ -28,6 +28,11 @@
             <li [routerLinkActive]='["link-active"]'>
               <a [routerLink]='["/student-create"]' (click)='collapse()'>
                 <span class='glyphicon glyphicon-th-list'></span> Student
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/book-issue"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Book Issue
               </a>
             </li>
           </ul>

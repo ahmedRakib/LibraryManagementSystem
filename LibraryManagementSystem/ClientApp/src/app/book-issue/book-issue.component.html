@@ -1,0 +1,23 @@
+
+<h1>{{title}}</h1>
+<h3>Book Issue</h3>
+<hr />
+<form [formGroup]="bookCreateForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Book</label>
+    <div class="col-md-4">
+      <select class="form-control" data-val="true" formControlName="city">
+        <option value="">--Select Book--</option>
+        <option *ngFor="let book of bookList"
+                value={{book.id}}>
+          {{book.author}}
+        </option>
+      </select>
+    </div>
+  </div>
+</form>
+
+
+

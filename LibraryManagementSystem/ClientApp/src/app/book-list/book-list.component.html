@@ -1,0 +1,33 @@
+<h1>Employee Data</h1>  
+      
+<p>This component demonstrates fetching Employee data from the server.</p>  
+  
+<p *ngIf="!bookList"><em>Loading...</em></p>  
+  
+<p>  
+    <a [routerLink]="['/book-create']">Create New</a>  
+</p>  
+  
+<table class='table' *ngIf="bookList">  
+    <thead>  
+        <tr>  
+            <th>BookId</th>  
+            <th>Book Title</th>  
+            <th>Author</th>  
+            <th>Price</th>  
+        </tr>  
+    </thead>  
+    <tbody>  
+        <tr *ngFor="let book of bookList">  
+            <td>{{ book.bookId }}</td>  
+            <td>{{ book.title }}</td>  
+            <td>{{ book.author }}</td>  
+            <td>{{ book.price }}</td>  
+            <td>  
+            <td>  
+               <a [routerLink]="['/book-edit/', book.bookId]">Edit</a>  
+                
+            </td>  
+        </tr>  
+    </tbody>  
+</table>

@@ -20,12 +20,16 @@ export class BookService {
         .catch(this.errorHandler)  
 }  
 
-// getBooks() {  
-//   // return this._http.get(this.myAppUrl + 'api/Book')  
-//   //     .map((response: Response) => response.json())  
-//   //     .catch(this.errorHandler);  
-//   return this.http.get<any>(_url);
-// }  
+editBook(book) {  
+  return this._http.put(this.myAppUrl + 'api/Book', book)  
+      .map((response: Response) => response.json())  
+      .catch(this.errorHandler)  
+}  
+
+getBookById(id: number) {  
+  return this._http.get<any>(this.myAppUrl+ 'api/Book/' + id);
+}  
+
 
 getBooks():Observable<any>{
  

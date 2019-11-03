@@ -15,6 +15,14 @@ namespace LibraryManagementSystem.Controllers
             return Ok("Saved");
         }
 
+        [HttpPut]
+        public IActionResult Edit([FromBody] Book book)
+        {
+
+            return Ok("Edit");
+        }
+
+
         [HttpGet]
         public IEnumerable<Book> Get()
         {
@@ -23,6 +31,18 @@ namespace LibraryManagementSystem.Controllers
             {
                 new Book{ Author = "Rakib", Title="Ice and Fire", Price = 230, BookId=1},
                 new Book{ Author = "Rakib", Title="Ice and Fire", Price = 230, BookId=1},
+            };
+
+        }
+
+
+        [HttpGet("{id}")]
+        public Book Get(int id)
+        {
+
+            return new Book()
+            {
+                Author = "Rakib", Title="Ice and Fire", Price = 230, BookId=1,
             };
 
         }

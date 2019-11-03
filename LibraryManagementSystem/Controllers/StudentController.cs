@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using LibraryManagementSystem.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryManagementSystem.Controllers
 {
@@ -7,22 +7,13 @@ namespace LibraryManagementSystem.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<Student> WeatherForecasts()
+        [HttpPost]
+        public IActionResult Save([FromBody] Student student)
         {
 
-            return new List<Student>()
-           {
-               new Student{ Name= "Rakib"},
-
-                new Student{ Name= "Sakib"},
-           };
+            return Ok("Saved");
         }
 
-        public class Student
-        {
-            public string Name { get; set; }
-           
-        }
     }
+
 }

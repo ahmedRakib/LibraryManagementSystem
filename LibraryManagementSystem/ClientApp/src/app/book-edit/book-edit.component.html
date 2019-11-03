@@ -1,3 +1,91 @@
-<p>
-  book-edit works!
-</p>
+
+
+<h1>{{title}}</h1>
+<h3>Book Information</h3>
+<hr />
+<form [formGroup]="bookForm" (ngSubmit)="edit()" #formDir="ngForm" novalidate>
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Name</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="title" >
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label class=" control-label col-md-12">Author</label>
+      <div class="col-md-4">
+          <input class="form-control" type="text" formControlName="author" >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class=" control-label col-md-12">Price</label>
+      <div class="col-md-4">
+          <input class="form-control" type="number" formControlName="price" >
+      </div>
+    </div>
+    <!-- <div class="form-group row">
+        <label class="control-label col-md-12" for="Gender">Gender</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="gender">
+                <option value="">-- Select Gender --</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <span class="text-danger" *ngIf="gender.invalid && formDir.submitted">
+            Gender is required
+        </span>
+    </div> -->
+    <!-- <div class="form-group row">
+        <label class="control-label col-md-12" for="Department">Department</label>
+        <div class="col-md-4">
+            <input class="form-control" type="text" formControlName="department">
+        </div>
+        <span class="text-danger" *ngIf="department.invalid && formDir.submitted">
+            Department is required
+        </span>
+    </div> -->
+    <!-- <div class="form-group row">
+        <label class="control-label col-md-12" for="City">City</label>
+        <div class="col-md-4">
+            <select class="form-control" data-val="true" formControlName="city">
+                <option value="">--Select City--</option>
+                <option *ngFor="let city of cityList"
+                        value={{city.cityName}}>
+                    {{city.cityName}}
+                </option>
+            </select>
+        </div>
+        <span class="text-danger" *ngIf="city.invalid && formDir.submitted">
+            City is required
+        </span>
+    </div> -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Save</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+ <!-- <form [formGroup]="bookCreateForm">
+
+  <label>
+    Book Title:
+    <input type="text" formControlName="bookTitle">
+  </label>
+<br>
+  <label>
+    Author Name:
+    <input type="text" formControlName="bookAuthor">
+  </label>
+<br>
+  <p>
+    <button type="submit" (click)="onClickMe()" >Save</button>
+  </p>
+
+</form>  -->

@@ -17,20 +17,17 @@
                 <span class='glyphicon glyphicon-home'></span> Home
               </a>
             </li>
-            <li [routerLinkActive]='["link-active"]'>
-              <a [routerLink]='["/counter"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-education'></span> Counter
-              </a>
-            </li>
-            <li [routerLinkActive]='["link-active"]'>
-              <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> Fetch data
-              </a>
-            </li>
+           
             <!--<!--test-->
             <li [routerLinkActive]='["link-active"]'>
               <a [routerLink]='["/book-list"]' (click)='collapse()'>
                 <span class='glyphicon glyphicon-th-list'></span> Book
+              </a>
+            </li>
+
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/student-create"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Student
               </a>
             </li>
           </ul>

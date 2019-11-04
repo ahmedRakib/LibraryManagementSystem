@@ -1,7 +1,10 @@
+using LibraryManagementSystem.Gateway;
+using LibraryManagementSystem.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,11 +24,24 @@ namespace LibraryManagementSystem
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])
+            );
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            //Adding services for dependency injection
+            services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IBookIssueService, BookIssueService>();
+            services.AddScoped<IStudentService, StudentService>();
+
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookIssueRepository, BookIssueRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

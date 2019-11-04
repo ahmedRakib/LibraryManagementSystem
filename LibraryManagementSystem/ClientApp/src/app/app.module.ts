@@ -18,6 +18,7 @@ import { BookEditComponent } from './book-edit/book-edit.component';
 import { StudentCreateComponent } from './student-create/student-create.component';
 import { StudentService } from './services/student.service';
 import { BookIssueComponent } from './book-issue/book-issue.component';
+import { BookIssueService } from './services/book-issue.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { BookIssueComponent } from './book-issue/book-issue.component';
     ])
   ],
   providers: [
-    BookService, StudentService
+    BookService, StudentService, BookIssueService
   ],
   bootstrap: [AppComponent]
 })

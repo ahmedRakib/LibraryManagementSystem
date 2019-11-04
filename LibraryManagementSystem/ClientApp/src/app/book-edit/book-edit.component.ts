@@ -17,8 +17,8 @@ export class BookEditComponent implements OnInit {
       this.bookId = this._avRoute.snapshot.params["id"];  
   } 
 
-  this.bookForm = this._fb.group({  
-    bookId:0,
+    this.bookForm = this._fb.group({
+    bookId: this.bookId,
     title: [''],  
     author: [''],  
     price: ['']
@@ -40,6 +40,7 @@ export class BookEditComponent implements OnInit {
 edit()
 {
   const book = {
+    BookId: this.bookId,
     Title: this.bookForm.controls.title.value,
     Author: this.bookForm.controls.author.value,
     Price: this.bookForm.controls.price.value,

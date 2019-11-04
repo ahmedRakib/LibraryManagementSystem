@@ -2,21 +2,51 @@
 <h1>{{title}}</h1>
 <h3>Book Issue</h3>
 <hr />
-<form [formGroup]="bookCreateForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+<form [formGroup]="bookIssueForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
 
 
   <div class="form-group row">
     <label class=" control-label col-md-12">Book</label>
     <div class="col-md-4">
-      <select class="form-control" data-val="true" formControlName="city">
+      <select id="bookId" class="form-control" data-val="true" formControlName="bookId">
         <option value="">--Select Book--</option>
         <option *ngFor="let book of bookList"
-                value={{book.id}}>
-          {{book.author}}
+                value={{book.bookId}}>
+          {{book.title}}
         </option>
       </select>
     </div>
   </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Student</label>
+    <div class="col-md-4">
+      <select id="studentId" class="form-control" formControlName="studentId" name="studentId"
+              type="text">
+        <option value="">--Select Student--</option>
+        <option *ngFor="let c of studentList" value={{c.studentId}}>{{c.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Issue Date</label>
+    <div class="col-md-4">
+      <input type="date" formControlName="issueDate" id="input" class="form-control" mdbInput>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Return Date</label>
+    <div class="col-md-4">
+      <input type="date" formControlName="returnDate" id="input" class="form-control" mdbInput>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Save</button>
+  </div>
+
 </form>
 
 

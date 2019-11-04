@@ -10,24 +10,26 @@
   
 <table class='table' *ngIf="bookList">  
     <thead>  
-        <tr>  
-            <th>BookId</th>  
-            <th>Book Title</th>  
-            <th>Author</th>  
-            <th>Price</th>  
-        </tr>  
+      <tr>
+        <th>BookId</th>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>  
     </thead>  
     <tbody>  
-        <tr *ngFor="let book of bookList">  
-            <td>{{ book.bookId }}</td>  
-            <td>{{ book.title }}</td>  
-            <td>{{ book.author }}</td>  
-            <td>{{ book.price }}</td>  
-            <td>  
-            <td>  
-               <a [routerLink]="['/book-edit/', book.bookId]">Edit</a>  
-                
-            </td>  
-        </tr>  
+      <tr *ngFor="let book of bookList">
+        <td>{{ book.bookId }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.status }}</td>
+        <td>
+        <td>
+          <a [routerLink]="['/book-edit/', book.bookId]">Edit</a>
+
+        </td>
+      </tr>  
     </tbody>  
 </table>

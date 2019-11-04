@@ -1,23 +1,19 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class StudentService {
-  myAppUrl: string = ""; 
+export class BookIssueService {
+
+  myAppUrl: string = "";
   constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.myAppUrl = baseUrl;
   }
 
-  saveStudent(student) {
-    return this._http.post(this.myAppUrl + 'api/Student', student)
+  saveBookIssue(bookIssue) {
+    return this._http.post(this.myAppUrl + 'api/BookIssue', bookIssue)
       .map((response: Response) => response.json())
       .catch(this.errorHandler)
-  }
-
-  getStudents(): Observable<any> {
-
-    return this._http.get<any>(this.myAppUrl + 'api/Student');
   }
 
   errorHandler(error: Response) {

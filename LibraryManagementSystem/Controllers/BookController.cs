@@ -1,10 +1,7 @@
-﻿using LibraryManagementSystem.Gateway;
-using LibraryManagementSystem.Models;
+﻿using LibraryManagementSystem.Models;
 using LibraryManagementSystem.Service;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LibraryManagementSystem.Controllers
 {
@@ -50,6 +47,14 @@ namespace LibraryManagementSystem.Controllers
         public Book Get(int id)
         {
             var book = _bookService.GetBook(id);
+
+            return book;
+
+        }
+        [HttpGet("GetByStatus/{status}")]
+        public List<Book> GetByStatus(string status)
+        {
+            var book = _bookService.GetBooks(status);
 
             return book;
 

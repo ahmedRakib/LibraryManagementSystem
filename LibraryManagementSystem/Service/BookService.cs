@@ -1,8 +1,5 @@
-﻿using System;
+﻿using LibraryManagementSystem.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LibraryManagementSystem.Models;
 
 namespace LibraryManagementSystem.Service
 {
@@ -17,7 +14,7 @@ namespace LibraryManagementSystem.Service
         public string Edit(Book book)
         {
             //setting new book status to "Free"
-            if (book.Status == null || book.Status == "")
+            if (string.IsNullOrWhiteSpace(book.Status))
             {
                 book.Status = "FREE";
             }
@@ -47,6 +44,19 @@ namespace LibraryManagementSystem.Service
                 return null;
             }
 
+        }
+
+        public List<Book> GetBooks(string status)
+        {
+            //return list of book by book status
+            if (!string.IsNullOrWhiteSpace(status))
+            {
+                return _bookRepository.GetBooks(status);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Book> GetBooks()

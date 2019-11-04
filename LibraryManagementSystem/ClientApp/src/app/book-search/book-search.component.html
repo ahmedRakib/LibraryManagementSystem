@@ -1,14 +1,19 @@
-<h1>Book Data</h1>
+<h1>Book Search</h1>
 
-
-
-<p *ngIf="!bookList"><em>Loading...</em></p>
-
-<p>
-  <a class="btn btn-default" style="color:blueviolet" [routerLink]="['/book-create']">Create New</a>
-
-  <a class="btn btn-default" style="color:blueviolet" [routerLink]="['/book-search']">Search Book</a>
-</p>
+<div class="form-group row">
+  <label class=" control-label col-md-12">Book Option</label>
+  <div class="col-md-4">
+    <select #searchOption id="searchOption" class="form-control" data-val="true" (change)='onOptionsSelected(searchOption.value)' >
+      <option value="">--Select Option--</option>
+      <option value="FREE">
+        FREE
+      </option>
+      <option value="ISSUED">
+        ISSUED
+      </option>
+    </select>
+  </div>
+</div>
 
 <table class='table' *ngIf="bookList">
   <thead>

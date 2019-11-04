@@ -10,7 +10,8 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class BookEditComponent implements OnInit {
   bookForm: FormGroup; 
-  bookId: number;  
+  bookId: number;
+  bookStatus: string;
   errorMessage: any;  
   constructor(private _fb: FormBuilder,private _avRoute : ActivatedRoute, private bookService : BookService) {
     if (this._avRoute.snapshot.params["id"]) {  
@@ -21,7 +22,8 @@ export class BookEditComponent implements OnInit {
     bookId: this.bookId,
     title: [''],  
     author: [''],  
-    price: ['']
+    price: [''],
+    status:['']
 })  
 }
 
@@ -33,8 +35,8 @@ export class BookEditComponent implements OnInit {
   ngOnInit() {
 
     this.bookService.getBookById(this.bookId)  
-    .subscribe(resp => this.bookForm.setValue(resp)  
-    , error => this.errorMessage = error);
+      .subscribe(resp => this.bookForm.setValue(resp)
+      , error => this.errorMessage = error);
   }
 
 edit()
@@ -44,29 +46,11 @@ edit()
     Title: this.bookForm.controls.title.value,
     Author: this.bookForm.controls.author.value,
     Price: this.bookForm.controls.price.value,
+    Status: this.bookForm.controls.status.value,
   }
   //Call saveBook service
-  this.bookService.editBook(book).subscribe(response => {
-
-    console.log(response[0].status);
-    //this.spinner.hide();
-    if (response[0].status == 200) { //Status code 200 is OK
-      console.log("response is: " + response);
-      // this.toastr.success("", 'Successfully saved');
-      // this.spinner.hide();
-
-      //To reset the form
-      this.bookForm.reset();
-    }
-    // else if (response[0].status == 500) {
-    //   this.toastr.success("", 'Bank Code already exist'); //not working
-    //   this.spinner.hide();
-    // }
-    // else {
-    //   this.spinner.hide();
-    //   this.toastr.error("", "Not Saved");
-    // }
-  });
+  this.bookService.editBook(book).subscribe(response => { });
+  this.bookForm.reset();
 }
 
 }

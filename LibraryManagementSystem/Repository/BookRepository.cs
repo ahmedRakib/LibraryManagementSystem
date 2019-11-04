@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LibraryManagementSystem.Gateway;
+﻿using LibraryManagementSystem.Gateway;
 using LibraryManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LibraryManagementSystem.Service
 {
@@ -27,6 +25,13 @@ namespace LibraryManagementSystem.Service
         {
             //return all books
             return _dbContext.Books.ToList();
+        }
+
+        public List<Book> GetBooks(string status)
+        {
+            var books = _dbContext.Books.Where(x => x.Status == status).ToList();
+
+            return books;
         }
 
         public int Insert(Book book)

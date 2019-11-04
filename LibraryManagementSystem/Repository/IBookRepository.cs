@@ -12,5 +12,6 @@ namespace LibraryManagementSystem.Service
         int Update(Book book);
         List<Book> GetBooks();
         Book GetBook(int id);
+        List<Book> GetBooks(string status);
     }
 }

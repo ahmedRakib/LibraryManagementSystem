@@ -28,8 +28,14 @@ editBook(book) {
 
 getBookById(id: number) {  
   return this._http.get<any>(this.myAppUrl+ 'api/Book/' + id);
-}  
+}
 
+  getBooksByStatus(status: string): Observable<any> {
+    console.log("service " + this.myAppUrl + status);
+    return this._http.get<any>(this.myAppUrl + 'api/Book/GetByStatus/' + status);
+
+    
+  }
 
 getBooks():Observable<any>{
  

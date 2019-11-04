@@ -8,9 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-//import { StudentComponent } from './student/student-create.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { BookService } from './services/book.service';
 import { BookListComponent } from './book-list/book-list.component';
@@ -26,9 +23,6 @@ import { BookSearchComponent } from './book-search/book-search.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-   // StudentComponent,
-    FetchDataComponent,
     BookCreateComponent,
     BookListComponent,
     BookEditComponent,
@@ -44,9 +38,6 @@ import { BookSearchComponent } from './book-search/book-search.component';
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-     // { path: 'student-create', component: StudentComponent },
       { path: 'book-create', component: BookCreateComponent },
       { path: 'book-search', component: BookSearchComponent },
       { path: 'book-list', component: BookListComponent },

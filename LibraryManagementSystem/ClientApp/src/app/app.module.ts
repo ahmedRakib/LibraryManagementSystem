@@ -17,6 +17,7 @@ import { StudentService } from './services/student.service';
 import { BookIssueComponent } from './book-issue/book-issue.component';
 import { BookIssueService } from './services/book-issue.service';
 import { BookSearchComponent } from './book-search/book-search.component';
+import { BookDeleteComponent } from './book-delete/book-delete.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BookSearchComponent } from './book-search/book-search.component';
     BookEditComponent,
     StudentCreateComponent,
     BookIssueComponent,
-    BookSearchComponent
+    BookSearchComponent,
+    BookDeleteComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -42,6 +44,7 @@ import { BookSearchComponent } from './book-search/book-search.component';
       { path: 'book-search', component: BookSearchComponent },
       { path: 'book-list', component: BookListComponent },
       { path: 'book-edit/:id', component: BookEditComponent },
+      { path: 'book-delete/:id', component: BookDeleteComponent },
       { path: 'student-create', component: StudentCreateComponent },
       { path: 'book-issue', component: BookIssueComponent },
     ])

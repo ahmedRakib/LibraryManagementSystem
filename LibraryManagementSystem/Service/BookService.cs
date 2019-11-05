@@ -11,6 +11,22 @@ namespace LibraryManagementSystem.Service
             _bookRepository = bookRepository;
         }
 
+        public string Delete(int id)
+        {
+
+            int rowAffected = _bookRepository.Delete(id);
+
+            if (rowAffected > 0)
+            {
+                return "Deleted";
+            }
+
+            else
+            {
+                return "Deleting Failed";
+            }
+        }
+
         public string Edit(Book book)
         {
             //setting new book status to "Free"

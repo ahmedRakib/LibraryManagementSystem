@@ -1,0 +1,35 @@
+<h1>{{title}}</h1>
+<h3>Book Information</h3>
+<hr />
+<form [formGroup]="bookForm" (ngSubmit)="delete()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Name</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="title" [readonly]="true">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Author</label>
+    <div class="col-md-4">
+      <input class="form-control" type="text" formControlName="author" [readonly]="true">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Price</label>
+    <div class="col-md-4">
+      <input class="form-control" type="number" formControlName="price" [readonly]="true">
+    </div>
+  </div>
+
+  <div class="form-group row" *ngIf="false">
+    <label class=" control-label col-md-12">Status</label>
+    <div class="col-md-4">
+      <input class="form-control" type="number" formControlName="status" [readonly]="true">
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Delete</button>
+  </div>
+</form>

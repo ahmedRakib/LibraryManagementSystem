@@ -14,6 +14,17 @@ namespace LibraryManagementSystem.Service
             _dbContext = dbContext;
         }
 
+        public int Delete(int id)
+        {
+            var book = _dbContext.Books.Find(id);
+            if (book != null)
+            {
+                _dbContext.Books.Remove(book);
+            }
+            return _dbContext.SaveChanges();
+            
+        }
+
         public Book GetBook(int id)
         {
             var book = _dbContext.Books.Find(id);

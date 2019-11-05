@@ -13,5 +13,6 @@ namespace LibraryManagementSystem.Service
         List<Book> GetBooks();
         Book GetBook(int id);
         List<Book> GetBooks(string status);
+        int Delete(int id);
     }
 }

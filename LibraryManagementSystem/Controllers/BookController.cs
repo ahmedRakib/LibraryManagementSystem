@@ -51,6 +51,16 @@ namespace LibraryManagementSystem.Controllers
             return book;
 
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            string message = _bookService.Delete(id);
+
+            return Ok(message);
+
+        }
+
         [HttpGet("GetByStatus/{status}")]
         public List<Book> GetByStatus(string status)
         {

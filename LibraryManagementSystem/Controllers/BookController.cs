@@ -2,6 +2,7 @@
 using LibraryManagementSystem.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LibraryManagementSystem.Controllers
 {
@@ -20,9 +21,33 @@ namespace LibraryManagementSystem.Controllers
         {
 
 
-            var message =_bookService.Save(book);
+            var outputMessage = _bookService.Save(book);
 
-            return Ok(message);
+            if (outputMessage == "Saved")
+            {
+                var messageModel = new[] {
+                        new {
+
+                            message = outputMessage,
+                            status = 200
+                            }
+                        }.ToList();
+
+                return Ok(messageModel);
+            }
+            else
+            {
+                var messageModel = new[] {
+                        new {
+
+                            message = outputMessage,
+                            status = 500
+                            }
+                        }.ToList();
+
+                return Ok(messageModel);
+            }
+
         }
 
         [HttpPut]

@@ -18,6 +18,7 @@ import { BookIssueComponent } from './book-issue/book-issue.component';
 import { BookIssueService } from './services/book-issue.service';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { BookDeleteComponent } from './book-delete/book-delete.component';
+import { AlertService, AlertModule } from './_alert';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BookDeleteComponent } from './book-delete/book-delete.component';
     BookDeleteComponent
   ],
   imports: [
+    AlertModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     ReactiveFormsModule,
@@ -50,7 +52,7 @@ import { BookDeleteComponent } from './book-delete/book-delete.component';
     ])
   ],
   providers: [
-    BookService, StudentService, BookIssueService
+    BookService, StudentService, BookIssueService, AlertService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,10 +10,12 @@ export class BookIssueService {
     this.myAppUrl = baseUrl;
   }
 
-  saveBookIssue(bookIssue) {
-    return this._http.post(this.myAppUrl + 'api/BookIssue', bookIssue)
-      .map((response: Response) => response.json())
-      .catch(this.errorHandler)
+  saveBookIssue(bookIssue): Observable<any> {
+    const _url = `${this.myAppUrl}api/BookIssue`;
+    return this._http.post<any>(_url, bookIssue);
+    // return this._http.post(this.myAppUrl + 'api/BookIssue', bookIssue)
+    //   .map((response: Response) => response.json())
+    //   .catch(this.errorHandler)
   }
 
   errorHandler(error: Response) {

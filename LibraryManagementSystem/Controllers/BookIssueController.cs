@@ -22,9 +22,32 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public IActionResult Save([FromBody] BookIssue bookIssue)
         {
-            string message = _bookIssueService.Save(bookIssue);
+            string outputMessage = _bookIssueService.Save(bookIssue);
 
-            return Ok(message);
+            if (outputMessage == "Issued Successfully")
+            {
+                var messageModel = new[] {
+                        new {
+
+                            message = outputMessage,
+                            status = 200
+                            }
+                        }.ToList();
+
+                return Ok(messageModel);
+            }
+            else
+            {
+                var messageModel = new[] {
+                        new {
+
+                            message = outputMessage,
+                            status = 500
+                            }
+                        }.ToList();
+
+                return Ok(messageModel);
+            }
         }
     }
 }

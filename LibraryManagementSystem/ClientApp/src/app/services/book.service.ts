@@ -14,11 +14,13 @@ export class BookService {
   constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.myAppUrl = baseUrl;
   }
-  saveBook(book) {
-    return this._http.post(this.myAppUrl + 'api/Book', book)
-      .map((response: Response) => response.json())
-      .catch(this.errorHandler)
-  }
+  saveBook(book): Observable<any> {
+    const _url = `${this.myAppUrl}api/Book`;
+    return this._http.post<any>(_url, book);
+    // return this._http.post(this.myAppUrl + 'api/Book', book)  
+    //     .map((response: Response) => response.json())  
+    //     .catch(this.errorHandler)  
+  }  
 
   editBook(book) {
     return this._http.put(this.myAppUrl + 'api/Book', book)
